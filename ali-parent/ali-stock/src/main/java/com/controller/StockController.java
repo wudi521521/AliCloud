@@ -1,5 +1,8 @@
 package com.controller;
 
+import com.feign.FeignOrder;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -12,9 +15,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/stock")
 public class StockController {
 
-    @RequestMapping("/reduct")
+
+
+    @GetMapping("/reduct")
     public String reduct(){
         System.out.println("扣减库存");
-        return "扣减库存成功";
+              return "扣减库存成功";
     }
 }

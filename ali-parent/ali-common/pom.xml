@@ -10,6 +10,7 @@
 
     <artifactId>ali-common</artifactId>
     <packaging>jar</packaging>
+    <version>1.0.0</version>
     <name>ali-common</name>
     <modelVersion>4.0.0</modelVersion>
     <!--此模块配置共享依赖包-->
