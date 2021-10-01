@@ -1,8 +1,8 @@
 server:
-  port: 8010
+  port: 8020
 spring:
   application:
-    name: ali-order
+    name: ali-stock
   cloud:
     nacos:
       server-addr: 127.0.0.1:8848
@@ -13,19 +13,10 @@ spring:
         enabled: true
         service: ${spring.application.name}
         instance-enabled: true
-
 managemnet:
   endpoints:
     web:
       exposure:
         include: '*'
-#springboot默认的日志级别是info,feign的debug日志级别就不会输入 #全局feign
-logging:
-  level:
-    com.cloud.config.FeignConfig: debug
-#feign日志局部配置
-feign:
-  client:
-    config:
-      ali-order:
-        loggerlevel: full
+
+
