@@ -5,33 +5,27 @@
     <parent>
         <artifactId>ali-parent</artifactId>
         <groupId>com.ali</groupId>
-        <version>0.0.1-SNAPSHOT</version>
+        <version>1.0.0</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <!--订单模块-->
     <artifactId>ali-order</artifactId>
     <!--依赖-->
     <dependencies>
-       <!-- <dependency>
+        <dependency>
             <groupId>com.ali</groupId>
             <artifactId>ali-common</artifactId>
             <version>1.0.0</version>
-        </dependency>-->
+        </dependency>
         <!--SpringBoot启动依赖-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
         <!--openfeign远程调用-->
-        <!--<dependency>
+        <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-openfeign</artifactId>
-        </dependency>-->
-        <!--nacos 服务注册与发现-->
-        <dependency>
-            <groupId>com.alibaba.cloud</groupId>
-            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
-
         </dependency>
     </dependencies>
 

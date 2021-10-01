@@ -9,7 +9,7 @@
     </modules>
     <groupId>com.ali</groupId>
     <artifactId>ali-parent</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0.0</version>
     <name>ali-parent</name>
     <description>create parent project</description>
     <!--此配置，当项目打包时，此模块就不会被打包成jar-->
@@ -35,6 +35,7 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+
             <!--Spring Cloud netfflix 的版本管理-->
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
@@ -58,6 +59,7 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>2.5.5</version>
             </plugin>
         </plugins>
     </build>

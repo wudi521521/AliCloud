@@ -3,8 +3,6 @@ server:
 spring:
   application:
     name: ali-order
-  profiles:
-    active: dev
   cloud:
     nacos:
       server-addr: 127.0.0.1:8848
@@ -12,14 +10,12 @@ spring:
         username: nacos
         password: nacos
         namespace: public
+        enabled: true
+        service: ${spring.application.name}
+        instance-enabled: true
 
-
-
-
-    ##指定服务的负载均衡
-
-##解决负载均衡第一调用慢的问题#配置服务实例使用ribbon饥饿模式加载，多个使用逗号分隔#开启ribbon饥饿模式加载
-#ribbon:
-  #eager-load:
-   # clients: ali-stock
-    #enabled: true
+managemnet:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
