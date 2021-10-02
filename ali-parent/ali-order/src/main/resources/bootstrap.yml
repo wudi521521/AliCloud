@@ -1,0 +1,29 @@
+server:
+  port: 8010
+spring:
+  application:
+    name: com.cloud.order
+  cloud:
+    nacos:
+      #注册中心
+      server-addr: 127.0.0.1:8848
+      username: nacos
+      password: nacos
+      #nacos config 地址
+      #config:
+      #  namespace: public
+      #nacos客户端 默认是Properties的文件扩展名(只针对默认配置文件和profile)
+      #一旦修改了非Properties需要更新
+      config:
+        file-extension: yaml
+        refresh-enabled: true #默认为true,如果关闭客户端无法感知配置变化
+        namespace: dev        #空间
+        group: DEFAULT_GROUP  #分组
+        shared-configs:
+          - data-id: com.order.common.properteis #共享配置
+            refresh: true #自动刷新
+            #group: 默认是DefaultGroup
+
+#配置文件的优先级
+#profile>默认配置文件
+

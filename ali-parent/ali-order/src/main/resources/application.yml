@@ -1,19 +1,14 @@
 server:
   port: 8010
 spring:
+  profiles:
+    active: dev
   application:
-    name: ali-order
-  cloud:
-    nacos:
-      server-addr: 127.0.0.1:8848
-      discovery:
-        username: nacos
-        password: nacos
-        namespace: public
-        enabled: true
-        service: ${spring.application.name}
-        instance-enabled: true
-
+    name: com.cloud.order
+#在配置中心: 可以通过profile进行设置
+#只有默认的配置文件才能结合profile进行使用
+#对应的Dataid:${spring.application.name}-${profile}.${file-extension:properteis}
+#profile的后缀必须跟随默认文件必须配置
 managemnet:
   endpoints:
     web:
