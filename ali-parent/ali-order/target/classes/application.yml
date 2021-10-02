@@ -22,10 +22,18 @@ managemnet:
 #springboot默认的日志级别是info,feign的debug日志级别就不会输入 #全局feign
 logging:
   level:
-    com.cloud.config.FeignConfig: debug
+    com.cloud.feign: debug   #com.cloud.feign 这个就是feign接口的包
 #feign日志局部配置
 feign:
   client:
     config:
-      ali-order:
-        loggerlevel: full
+      ali-stock:               #对应feign 中name=服务名
+        loggerLevel: BASIC
+        #contract: feign.Contract.Default #指定Feign原生注解契约配置
+        #连接超时时间，默认5s
+        connectTimeout: 5000
+        #请求处理超时时间,默认3s
+        readTimeout: 3000
+        #局部feign拦截
+        requestInterceptors[0]:
+          com.cloud.intercptor.FeignAuthRequestInterceptor

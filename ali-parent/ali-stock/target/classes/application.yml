@@ -19,4 +19,16 @@ managemnet:
       exposure:
         include: '*'
 
-
+feign:
+  client:
+    config:
+      ali-stock:
+        loggerlevel: full
+        #contract: feign.Contract.Default #指定Feign原生注解契约配置
+        #连接超时时间，默认5s
+        connectTimeout: 5000
+        #请求处理超时时间,默认3s
+        readTimeout: 3000
+        #局部feign拦截
+        requestInterceptor[0]:
+          com.cloud.intercptor.FeignAuthRequestInterceptor

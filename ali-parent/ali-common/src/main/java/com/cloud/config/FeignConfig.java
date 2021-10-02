@@ -1,8 +1,12 @@
 package com.cloud.config;
 
+import com.cloud.intercptor.FeignAuthRequestInterceptor;
+import feign.Contract;
 import feign.Logger;
+import feign.Request;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+
 
 /**
  * @Title: FeignConfig
@@ -14,7 +18,7 @@ import org.springframework.context.annotation.Configuration;
  * @局部配置   1:配置类 如果只想针对某一个服务进行配置，就不要加@Configuration
  *            2:配置文件
  */
-@Configuration
+//@Configuration
 public class FeignConfig {
     /**
      * 日志级别
@@ -24,4 +28,33 @@ public class FeignConfig {
 
         return Logger.Level.FULL;
     }
+
+    /**
+     * 修改锲约配置，支持Feign原生的注解
+     * @return
+     */
+    //@Bean
+    public Contract feignContract(){
+        return new Contract.Default();
+    }
+
+    /**
+     * feign超时时间设置
+     * @return
+     */
+    @Bean
+    public Request.Options options(){
+        return new Request.Options(5000,10000);
+    }
+
+    /**
+     * 自定义拦截器
+     * @return
+     */
+    @Bean
+    public FeignAuthRequestInterceptor feignAuthRequestInterceptor(){
+        return new FeignAuthRequestInterceptor();
+    }
+
+
 }
